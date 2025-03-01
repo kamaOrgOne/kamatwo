@@ -49,12 +49,11 @@ jobs:
 
       # Set up SSH for deployment
       - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.4
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          echo "Deploying to server..."
 
       # Deploy to the server
       - name: Deploy to Server
         run: |
           echo "Deploying to server..."
-          ssh user@your-server.com 'cd /path/to/your/app && git pull && npm install && npm run build && npm start'
+          
